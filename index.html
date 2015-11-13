@@ -24,43 +24,42 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-	<body ng-controller="products">
+	<body ng-controller="storeController as store">
 		<div class="container-fluid" ng-controller="check">
 			<header>
 				<h1 class="vcenter">Grid System Layout</h1>
 				<!--- ng-click="style = 0" sets the global variable in angular file to 0 thus showing a diferent layout --->
 				<div class="right-side" ng-click="style = 0"><i class="fa fa-th-large"></i></div>
 				<div class="right-side" ng-click="style = 1"><i class="fa fa-list" ></i></div>
-				<button class="right-side btn btn-primary">Add</button>
+				<button class="right-side btn btn-primary" ng-click="ShowHide()">Add</button>
 			</header>
-			<form id="form-add" class="text-center" method="post" action="">
+			<form id="form-add" name="form" class="text-center" ng-show="IsVisible" ng-controller="tempAdd as add" ng-submit="add.addItem()" novalidate>
 				<div id="info">
 					<label>Manufacturer:</label></b>
 					<input type="text" class="input-list style-2 clearfix" id="make" placeholder="Enter Make Here..." required /></br>
 					 <div class="input-group">
 		                <span class="input-group-btn">
 		                    <span class="btn btn-primary btn-file">
-		                        Add Image <input type="file" id="files" class="stored" name="files" multiple>
+		                        Add Image <input type="file" id="files" class="stored" name="pic" multiple>
 		                    </span>
 		                </span>
 		                <input type="text" class="form-control" id="manufacturer" class="stored" name="manufacturer" readonly>
 		            </div>
-					<input type="submit" value="Submit" name="submit" class="btn btn-default submit" ng-click="" />
+					<input type="submit" value="Submit" id="submit" class="btn btn-default submit" ng-click="ShowHide()" />
 				</div>
 			</form>
-			<div id="test"></div>
 			<!--- ng-show="checkStyle() == 0" checks if global variable style is set to 0 then show this div else hide it --->
 			<div class="row grid" ng-show="checkStyle() == 0">
-				<div class="col-md-2 col-md-offset-1 text-center" ng-repeat="img in bicycles">
-					<img class="pictures col-centered" ng-src="{{img.pic}}">
-					<span>{{img.type}}</span>		
+				<div class="col-md-2 col-md-offset-1 text-center" ng-repeat="product in store.products">
+					<img class="pictures col-centered" ng-src="{{product.pic}}">
+					<span class="desc-grid">{{product.type}}</span>		
 				</div>
 			</div>
-			<!--- ng-show="checkStyle() == 1" checks if global variable style is set to 0 then show this div else hide it --->
+			<!--- ng-show="checkStyle() == 1" checks if global variable style is set to 1 then show this div else hide it --->
 			<div class="row list" ng-show="checkStyle() == 1">
-				<div class="col-md-12" ng-repeat="img in bicycles">
-					<img class="bicycle col-centered" ng-src="{{img.pic}}">
-					<span class="pull-right">{{img.type}}</span>		
+				<div class="col-md-12" ng-repeat="product in store.products">
+					<img class="bicycle col-centered" ng-src="{{product.pic}}">
+					<span class="desc-list">{{product.type}}</span>		
 				</div>
 			</div>
 		</div>
