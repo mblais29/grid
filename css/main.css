@@ -3,6 +3,7 @@
 	padding: 0;
 	border: none;
 }
+/* Header Stylization */
 
 header{
 	margin: 0;
@@ -37,6 +38,16 @@ figcaption{
     float: none;
 }
 
+.fa{
+	font-size: 3em;
+}
+
+.fa:hover {
+    color: #D7D6D6;
+}
+
+/* Grid and List Layouts */
+
 .col-md-2{
 	width: 300px;
 	height: 250px;
@@ -64,14 +75,6 @@ figcaption{
 .col-centered{
     float: none;
     margin: 0 auto;
-}
-
-.fa{
-	font-size: 3em;
-}
-
-.fa:hover {
-    color: #D7D6D6;
 }
 
 .grid{
@@ -163,8 +166,6 @@ figcaption{
 	margin-top: 10%;
 }
 
-
-/* form elements */
 label {
   margin-top: 2%;
   display: block;
@@ -246,6 +247,7 @@ input[type="number"]:focus {
   border: solid 5px #2e6da4;
 }
 
+/* Modify for smaller screens */
 @media screen and (max-width: 480px) {
     h1{
 		font-size: 1.5em;
