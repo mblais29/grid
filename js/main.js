@@ -19,13 +19,26 @@ $(document).ready( function() {
         }
         
     });
+    
+    //On submit resets the form
     $( "#submit" ).on('click', function(){
     	$("form").trigger("reset");
+    	//clears everything in local storage
+    	/*
+    	localStorage.removeItem('type');
+    	localStorage.removeItem('price');
+    	localStorage.removeItem('pic');
+    	*/
     });
     
     $("#make").change(function() {
     	localStorage.setItem('type', $('#make').val());
     	//console.log(localStorage.getItem ('type'));
+    });
+    
+    $("#price").change(function() {
+    	localStorage.setItem('price', $('#price').val());
+    	//console.log(localStorage.getItem ('price'));
     });
     
   // Add the new image path
@@ -44,15 +57,12 @@ $(document).ready( function() {
 	  // inject an image with the src url
 	  reader.onload = function(event) {
 	    the_url = event.target.result;
+	    //sets the image url in localstorage for use when adding 
 	    localStorage.setItem ('pic', the_url);
 	  };
 	  // when the file is read it triggers the onload event above.
-
 	  	reader.readAsDataURL(file);
-
-	  
 	};
-
 });
 
 

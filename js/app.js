@@ -14,7 +14,8 @@
 		
 		this.addItem = function($scope){
 			console.log(localStorage.getItem ('type'));
-			bikes.push({'type': localStorage.getItem ('type'), 'pic': localStorage.getItem ('pic')});
+			/* Pushes the new record to the array */
+			bikes.push({'type': localStorage.getItem ('type'), 'price': localStorage.getItem ('price'), 'pic': localStorage.getItem ('pic')});
 			
 		};
 	});
@@ -39,41 +40,49 @@ var bikes = [
 
 	{
 		"type": "Norco",
+		"price": "425",
 		"pic": "img/norco-mountain.png"
 		
 	},
 	{
 		"type": "Norco",
+		"price": "400",
 		"pic": "img/norco-mountain2.png"
 		
 	},
 	{
 		"type": "Norco",
+		"price": "530",
 		"pic": "img/norco-mountain3.png"
 		
 	},
 	{
 		"type": "Norco",
+		"price": "399",
 		"pic": "img/norco-cross.png"
 		
 	},
 	{
 		"type": "Kona",
+		"price": "629",
 		"pic": "img/kona-supreme_operator.jpg"
 		
 	},
 	{
 		"type": "Kona",
+		"price": "295",
 		"pic": "img/kona-process_167.jpg"
 		
 	},
 	{
 		"type": "Kona",
+		"price": "349",
 		"pic": "img/kona-hei_hei_supreme.jpg"
 		
 	},
 	{
 		"type": "Kona",
+		"price": "449",
 		"pic": "img/kona-rove_al.jpg"
 		
 	}

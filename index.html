@@ -8,6 +8,7 @@
     <title>Angular.js Form</title>
     
 	<!-- Google Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap -->
     <link href="components/bootstrap/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -34,13 +35,16 @@
 				<button class="right-side btn btn-primary" ng-click="ShowHide()">Add</button>
 			</header>
 			<form id="form-add" name="form" class="text-center" ng-show="IsVisible" ng-controller="tempAdd as add" ng-submit="add.addItem()" novalidate>
+				<div class="close" ng-click="ShowHide()"></div>
 				<div id="info">
 					<label>Manufacturer:</label></b>
 					<input type="text" class="input-list style-2 clearfix" id="make" placeholder="Enter Make Here..." required /></br>
+					<label>Price:</label></b>
+					<input type="text" class="input-list style-2 clearfix" id="price" placeholder="Enter Price Here..." required /></br>
 					 <div class="input-group">
 		                <span class="input-group-btn">
 		                    <span class="btn btn-primary btn-file">
-		                        Add Image <input type="file" id="files" class="stored" name="pic" multiple>
+		                        Add Image <input type="file" id="files" class="stored" name="pic">
 		                    </span>
 		                </span>
 		                <input type="text" class="form-control" id="manufacturer" class="stored" name="manufacturer" readonly>
@@ -52,6 +56,7 @@
 			<div class="row grid" ng-show="checkStyle() == 0">
 				<div class="col-md-2 col-md-offset-1 text-center" ng-repeat="product in store.products">
 					<img class="pictures col-centered" ng-src="{{product.pic}}">
+					<figcaption>${{product.price}}</figcaption>
 					<span class="desc-grid">{{product.type}}</span>		
 				</div>
 			</div>
@@ -59,7 +64,7 @@
 			<div class="row list" ng-show="checkStyle() == 1">
 				<div class="col-md-12" ng-repeat="product in store.products">
 					<img class="bicycle col-centered" ng-src="{{product.pic}}">
-					<span class="desc-list">{{product.type}}</span>		
+					<span class="desc-list">${{product.price}}<br/>{{product.type}}</span>		
 				</div>
 			</div>
 		</div>
